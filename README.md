@@ -1,42 +1,25 @@
 
 # Rapport
-
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Det som har gjorts i denna uppgift är att addera en ny extern bibliotek genom att lägga till den som en implementation i build gradle module app.
+I Manifest lägger en package som för den externa biblioteket. Sedan är det bara att skapa en view som kommer från den externa biblioteket. 
+Den externa biblioteket hanterar gif-bilder, så en gif-bild laddades ner och importerades in till drawable, sedan användes den som en src i view:en 
+i activity_main.xml.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:src="@drawable/jake_adventure_time"
+        android:translationY="150dp"
+        android:elevation="30dp"
+        android:background="#d3d3d3"/>
+        
+        <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.externallibraries">
+
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+![](jake-gif.png)
 
-![](android.png)
-
-Läs gärna:
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
